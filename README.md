@@ -48,6 +48,26 @@ npm start
 📷 Upload product images to the server
 🌐 Data persistence using MongoDB
 
+## 🖼️ Screenshots:
+
+### Home Page
+![Home Page](./frontend/screenshots/home1.png)
+
+### Home Page – Scroll
+![Home Page 2](./frontend/screenshots/home2.png)
+
+### Home Page – More
+![Home Page 3](./frontend/screenshots/home3.png)
+
+### Product Page
+![Product Page](./frontend/screenshots/product1.png)
+
+### Product Details
+![Product Details](./frontend/screenshots/product.png)
+
+### Cart Page
+![Cart Page](./frontend/screenshots/cart.png)
+
 
 
 
