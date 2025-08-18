@@ -12,7 +12,13 @@ app.use(express.json())
 app.use(cors());
 
 //database connection with mongodb
-mongoose.connect("mongodb+srv://rolnikmichal:050796mr@cluster0.8b5d4kw.mongodb.net/e-commerce");
+
+
+mongoose.connect("mongodb+srv://rolnikmichal:050796mr@cluster0.8b5d4kw.mongodb.net/Ecommerce?retryWrites=true&w=majority")
+
+.then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
 
 
 //api creation
@@ -86,6 +92,23 @@ const Product=mongoose.model("Product",{
     },
     
 });
+
+// Debug route to inspect DB data
+app.get("/__debug", async (req, res) => {
+  try {
+    const info = {
+      dbName: mongoose.connection.name,
+      collection: mongoose.model('Product').collection.collectionName,
+      total: await mongoose.model('Product').estimatedDocumentCount(),
+      women: await mongoose.model('Product').countDocuments({ category: 'women' }),
+      womens: await mongoose.model('Product').countDocuments({ category: 'womens' }),
+    };
+    res.json(info);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // Add a new product to the database:
 app.post('/addproduct', async(req,res)=>{
     let products=await Product.find({});
@@ -274,6 +297,25 @@ const fetchUser = async (req, res, next) => {
     let userData = await Users.findOne({ _id: req.user.id });
     res.json(userData.cartData);
   });
+
+  // === TEMP: seed DB with sample products (delete after use) ===
+app.post('/__seed', async (req, res) => {
+  try {
+    const samples = [
+      { id: 1, name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse', image: 'product_1.png', category: 'women', new_price: 50.00, old_price: 80.50 },
+      { id: 2, name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse', image: 'product_2.png', category: 'women', new_price: 85.00, old_price: 120.50 },
+      { id: 3, name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse', image: 'product_3.png', category: 'women', new_price: 60.00, old_price: 100.50 },
+      { id: 4, name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse', image: 'product_4.png', category: 'women', new_price: 100.00, old_price: 150.00 },
+    ];
+    await Product.deleteMany({});
+    await Product.insertMany(samples);
+    res.json({ ok: true, inserted: samples.length });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+// === /TEMP ===
+
 
 
     app.listen(port,(error)=>{
