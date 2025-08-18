@@ -2,6 +2,7 @@
 
 A full-stack **E-Commerce web application** built with **React, Node.js, Express, and MongoDB**.  
 The project supports user authentication, product browsing, shopping cart management, and an admin dashboard for product management.
+
 👩‍💻This project was developed by Michal Rolnik as part of a Computer Science degree project.
 
 
@@ -46,6 +47,7 @@ npm start
 📊 Admin dashboard to add new products
 📷 Upload product images to the server
 🌐 Data persistence using MongoDB
+
 
 
 
