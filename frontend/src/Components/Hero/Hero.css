@@ -50,11 +50,14 @@
     font-weight: 500;
   }
   .hero-right{
+    
 
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 100px;
   }
+  
 
   /*התאמות לגדלי מסך שונים*/
 
