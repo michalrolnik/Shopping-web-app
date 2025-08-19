@@ -53,17 +53,14 @@ npm start
 ### Home Page
 ![Home Page](./frontend/src/Components/Assets/screenshots/home1.png)
 
-### Home Page – Scroll
 ![Home Page 2](./frontend/src/Components/Assets/screenshots/home2.png)
 
-### Home Page – More
 ![Home Page 3](./frontend/src/Components/Assets/screenshots/home3.png)
-
-### Product Page
-![Product Page](./frontend/src/Components/Assets/screenshots/product1.png)
 
 ### Product Details
 ![Product Details](./frontend/src/Components/Assets/screenshots/product.png)
+![Product Page](./frontend/src/Components/Assets/screenshots/product1.png)
+
 
 ### Cart Page
 ![Cart Page](./frontend/src/Components/Assets/screenshots/cart.png)
