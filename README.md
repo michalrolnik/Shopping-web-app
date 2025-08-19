@@ -57,11 +57,16 @@ npm start
 
 ![Home Page 3](./frontend/src/Components/Assets/screenshots/home3.png)
 
-### Product Details
+
+
+##
+### Product page
 ![Product Details](./frontend/src/Components/Assets/screenshots/product.png)
 ![Product Page](./frontend/src/Components/Assets/screenshots/product1.png)
 
 
+
+##
 ### Cart Page
 ![Cart Page](./frontend/src/Components/Assets/screenshots/cart.png)
 
